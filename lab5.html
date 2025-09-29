@@ -29,3 +29,20 @@
 
     </body>
     </html>
+    <!-- Change Color -->
+    <form onsubmit="return false">
+        <input type="button" value="Change Color" onclick="changeColor()">
+    </form>
+
+    <script type="text/javascript">
+        var isLightBlue = true;
+        function changeColor() {
+            if(isLightBlue) {
+                document.body.style.backgroundColor = "lightpink";
+            } else {
+                document.body.style.backgroundColor = "lightblue";
+        }
+        isLightBlue = !isLightBlue;
+    }
+    document.body.style.backgroundColor = "lightblue"; // initial color
+</script>
