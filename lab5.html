@@ -1,0 +1,97 @@
+<html>
+<head>
+    <title>INST377 - Lab 4</title>
+    <style>
+        section {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 10px;
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mainHeading">INST377 Lab 4</h1>
+
+    <!-- Alert Me Section -->
+    <section>
+        <h2>Alert Me Section</h2>
+        <form name="alertForm" onsubmit="return alertName()">
+            <label for="nameInput">Name:</label>
+            <input type="text" id="nameInput" placeholder="John" required>
+            <br>
+            <input type="submit" value="Alert Me">
+        </form>
+    </section>
+
+    <!-- Change Color Section -->
+    <section>
+        <h2>Change Color Section</h2>
+        <form onsubmit="return false">
+            <input type="button" value="Change Color" onclick="changeColor()">
+        </form>
+    </section>
+
+    <!-- Text Tester Section -->
+    <section>
+        <h2>Text Tester Section</h2>
+        <form name="textForm" onsubmit="return validateText()">
+            <input type="text" id="textInput" placeholder="Enter text">
+            <br>
+            <input type="submit" value="Validate Text">
+        </form>
+    </section>
+
+    <!-- Add Text Section -->
+    <section>
+        <h2>Add Text Section</h2>
+        <form onsubmit="return false">
+            <input type="button" value="Add Text" onclick="addText()">
+        </form>
+    </section>
+
+    <!-- JavaScript Code -->
+    <script type="text/javascript">
+        // Alert Me Section
+        function alertName() {
+            var name = document.alertForm.nameInput.value;
+            if (name.trim() === "") {
+                alert("Please enter your name!");
+                return false;
+            }
+            alert("Hi " + name + "!");
+            return false; // prevent form submission
+        }
+
+        // Change Color Section
+        var isBlue = true;
+        function changeColor() {
+            if (isBlue) {
+                document.body.style.backgroundColor = "green";
+            } else {
+                document.body.style.backgroundColor = "blue";
+            }
+            isBlue = !isBlue;
+        }
+        document.body.style.backgroundColor = "blue"; // initial color
+
+        // Text Tester Section
+        function validateText() {
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            var input = document.textForm.textInput.value;
+            if (validation.test(input)) {
+                alert("Special characters are not allowed!");
+                return false;
+            }
+            alert("Text is valid!");
+            return false;
+        }
+
+        // Add Text Section
+        function addText() {
+            var heading = document.getElementById("mainHeading");
+            heading.textContent += " Add Text";
+        }
+    </script>
+</body>
+</html>
