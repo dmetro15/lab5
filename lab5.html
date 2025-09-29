@@ -1,36 +1,31 @@
 <html>
 
 <head>
-    <title>INST377 - Form Validation</title>
+    <title>INST377 - Lab 4</title>
 </head>
 
 <body>
-    <form name="contactForm" onsubmit="return formValidation()" action="https://www.google.com">
+    <h1 id = "mainHeading">Lab 4</h1>
+
+    <form name="alertForm" onsubmit="return formValidation()">
         <label for="firstName">First Name:</label>
-        <input type="text" placeholder="John" id="firstName" required>
+        <input type="text" placeholder=" " id="firstName" required>
         <br>
-        <input type="submit">
+        <input type="submit" value = "Alert Me>">
     </form>
 
     <!--  Javacript Code -->
     <script type="text/javascript">
         function formValidation() {
-            console.log('Validating user input: ', document.contactForm.firstName.value)
-            const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-            if (document.contactForm.firstName.value.trim() == "") {
-                alert('Enter a valid first name!')
-                document.body.style.backgroundColor = 'orange'
+            var name = document.alertForm.firstName.value;
+            if(name.trim() ==="") {
+                alert("Please enter a valid name");
                 return false;
             }
+            alert("Hello " + name + "!");
+            return false;
+         }
+        </script>
 
-            if (validationRegex.test(document.contactForm.firstName.value)) {
-                document.body.style.backgroundColor = 'red';
-                alert('How about..... nah')
-
-                return false;
-            }
-        }
-    </script>
-</body>
-
-</html>
+    </body>
+    </html>
